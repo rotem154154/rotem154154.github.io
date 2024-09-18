@@ -3,69 +3,628 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Deep Learning Projects Showcase</title>
+        <title>Rotem Israeli - Research Engineer</title>
         <style>
+            /* Base Styles */
             body {
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
+                background-color: #f9f9f9;
+                line-height: 1.4;
             }
-            .section {
-                padding: 20px;
+
+            /* Container */
+            .container {
+                width: 80%;
+                max-width: 1200px;
+                margin: auto;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            /* Header */
+            header {
+                background: #333;
+                color: #fff;
+                padding: 15px;
+                border-bottom: #77b300 3px solid;
+            }
+
+            header h1 {
+                text-align: left;
+                margin: 0;
+                font-size: 28px;
+            }
+
+            /* Sections */
+            section {
+                padding: 10px 0;
+                margin-bottom: 20px;
+                background: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            /* Titles */
+            .title {
+                font-weight: bold;
+                font-size: 1.3em;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            /* Descriptions */
+            .description {
+                margin-left: 20px;
+                font-size: 1.1em;
+            }
+
+            .description p {
+                margin: 8px 0;
+                color: #555;
+            }
+
+            /* Button Container */
+            .button-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding-left: 20px; /* Align with text */
+                margin-top: 10px;
+            }
+
+            /* Buttons */
+            .button {
+                display: flex;
+                align-items: center;
+                padding: 8px 15px;
+                font-size: 1.1em;
+                color: #fff;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+
+            .button img.icon {
+                margin-right: 8px;
+            }
+
+            .button.github {
+                background-color: #333;
+            }
+
+            .button.github:hover {
+                background-color: #5c5c5c;
+            }
+
+            .button.linkedin {
+                background-color: #0077b5;
+            }
+
+            .button.linkedin:hover {
+                background-color: #005582;
+            }
+
+            .button.huggingface {
+                background-color: #ffcc00;
+                color: #333;
+            }
+
+            .button.huggingface:hover {
+                background-color: #ffdd44;
+            }
+
+            /* Contact Information */
+            .contact {
+                display: flex;
+                align-items: center;
+                margin: 0 10px;
+                font-size: 1.1em;
+                color: #555;
+            }
+
+            .contact img {
+                width: 24px;
+                margin-right: 10px;
+            }
+
+            /* Video Container for Genie Section */
+            .video-container {
+                display: flex;
+                gap: 10px; /* Space between videos */
+                flex-wrap: wrap;
+                justify-content: center; /* Center the videos */
+                margin-top: 20px;
+            }
+
+            /* Video Element Styling for Genie Section */
+            .video-container video.video {
+                width: 23%; /* Approximately 4 videos side by side with gaps */
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                height: auto;
+            }
+
+            /* Media Container for Mobile Face Transformation Section */
+            .media-container {
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+                align-items: stretch; /* Ensure both columns have equal height */
+                margin-top: 20px;
+            }
+
+            .media-container .text-section {
+                flex: 1;
+                min-width: 250px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .media-container .description {
+                flex: 1; /* Take up available space */
+            }
+
+            .media-container .image-caption {
+                margin-top: auto; /* Push to the bottom */
+                font-size: 0.9em;
+                color: #555;
+                text-align: left; /* Align text to the left */
+                margin-bottom: 10px; /* Space below caption */
+            }
+
+            .media-container .video-section {
+                flex: 1;
+                min-width: 250px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start; /* Align the video to the top */
+            }
+
+            .media-container .video-section video {
+                width: 100%;
+                max-width: 400px; /* Adjust as needed */
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                height: auto;
+            }
+
+            /* Image Container for Mobile Face Transformation Section */
+            .image-container {
+                margin-top: 20px;
                 text-align: center;
             }
-            img,
-            video {
+
+            .image-container img {
                 max-width: 100%;
                 height: auto;
-                display: block;
-                margin: 20px auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
-            video {
-                autoplay: true;
-                muted: true;
-                loop: true;
+
+            /* Additional Styles for VQA Layout */
+            .vqa-layout {
+                display: flex;
+                gap: 20px;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                margin-top: 20px;
             }
-            .project-description {
-                font-size: 1.2em;
-                margin-top: 10px;
-                color: #333;
+
+            .vqa-left {
+                flex: 1;
+                min-width: 300px;
+            }
+
+            .vqa-left img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-top: 20px;
+            }
+
+            /* Removed .vqa-right class and related styles */
+
+            /* Responsive Layout for Tablets */
+            @media (max-width: 1024px) {
+                .video-container video.video {
+                    width: 31%; /* 3 videos per row */
+                }
+
+                .vqa-layout {
+                    flex-direction: column;
+                }
+
+                .vqa-left {
+                    flex: none;
+                    width: 100%;
+                }
+            }
+
+            /* Responsive Layout for Smaller Screens */
+            @media (max-width: 768px) {
+                .container {
+                    width: 90%;
+                }
+
+                .button-container {
+                    padding-left: 0; /* Remove padding on smaller screens */
+                    justify-content: center;
+                }
+
+                .description {
+                    margin-left: 0;
+                    padding: 0 10px;
+                }
+
+                .video-container video.video {
+                    width: 48%; /* 2 videos per row */
+                }
+
+                .media-container {
+                    flex-direction: column;
+                }
+
+                .media-container .video-section {
+                    max-width: 100%;
+                }
+
+                .vqa-layout {
+                    flex-direction: column;
+                }
+
+                .vqa-left {
+                    width: 100%;
+                }
+            }
+
+            /* Responsive Layout for Very Small Screens */
+            @media (max-width: 480px) {
+                .video-container video.video {
+                    width: 100%; /* Stack videos vertically */
+                }
+
+                .media-container {
+                    flex-direction: column;
+                }
+
+                .media-container .video-section {
+                    max-width: 100%;
+                }
             }
         </style>
     </head>
     <body>
-        <!-- Project 1 -->
-        <div class="section">
-            <h2>Project 1: Image Classification</h2>
-            <img src="images/project1.jpg" alt="Project 1 Image" />
-            <p class="project-description">
-                This project focuses on classifying images using a deep neural
-                network.
-            </p>
-        </div>
+        <header>
+            <div class="container">
+                <h1>Rotem Israeli - Research Engineer</h1>
+            </div>
+        </header>
 
-        <!-- Project 2 -->
-        <div class="section">
-            <h2>Project 2: Object Detection</h2>
-            <video autoplay muted loop>
-                <source src="videos/project2.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <p class="project-description">
-                An object detection model that identifies objects in real-time.
-            </p>
-        </div>
+        <!-- Contact Information with Buttons -->
+        <section>
+            <div class="container button-container">
+                <!-- Hugging Face Button -->
+                <a
+                    href="https://huggingface.co/irotem98"
+                    class="button huggingface"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="icon"
+                        src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
+                        alt="Hugging Face"
+                        width="24"
+                    />
+                    Hugging Face
+                </a>
 
-        <!-- Project 3 -->
-        <div class="section">
-            <h2>Project 3: Video Generation</h2>
-            <video autoplay muted loop>
-                <source src="videos/project3.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <p class="project-description">
-                Generative model creating stunning videos from a single image.
-            </p>
-        </div>
+                <!-- GitHub Button -->
+                <a
+                    href="https://github.com/rotem154154"
+                    class="button github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="icon"
+                        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                        alt="GitHub"
+                        width="24"
+                    />
+                    GitHub
+                </a>
+
+                <!-- LinkedIn Button -->
+                <a
+                    href="https://linkedin.com/in/rotem-israeli-04ab10179"
+                    class="button linkedin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        class="icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+                        alt="LinkedIn"
+                        width="24"
+                    />
+                    LinkedIn
+                </a>
+
+                <!-- Email -->
+                <div class="contact">
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+                        alt="Email"
+                        width="24"
+                    />
+                    <a
+                        href="mailto:irotem98@gmail.com"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        irotem98@gmail.com
+                    </a>
+                </div>
+
+                <!-- Phone with Custom Logo -->
+                <div class="contact">
+                    <img
+                        src="https://e7.pngegg.com/pngimages/759/922/png-clipart-telephone-logo-iphone-telephone-call-smartphone-phone-electronics-text.png"
+                        alt="Phone"
+                        width="24"
+                    />
+                    <a
+                        href="tel:+972534326592"
+                        style="text-decoration: none; color: inherit"
+                    >
+                        (+972) 53-432-6592
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <div class="container">
+                <div class="title">Visual Question Answering 🔍</div>
+                <div class="vqa-layout">
+                    <div class="vqa-left">
+                        <div class="description">
+                            <p>
+                                • Developed a Visual Question Answering (VQA)
+                                system by combining vision models, a connector
+                                for visual-text alignment, and a language model,
+                                inspired by LLaVA.
+                            </p>
+                            <p>
+                                • First trained the connector and then
+                                fine-tuned the language model using LoRA.
+                            </p>
+                            <p>
+                                • Optimized feature extraction by experimenting
+                                with and combining multiple vision models,
+                                including SigLIP, MobileCLIP, DINOv2, and
+                                EfficientSAM.
+                            </p>
+                            <p>
+                                • Enhanced visual representations through
+                                dynamic high-resolution processing with
+                                LLaVA-NeXT and the s² wrapper.
+                            </p>
+                            <p>
+                                • Evaluated multiple language models (Gemma,
+                                Qwen, SmolLM, OpenELM) to improve response
+                                accuracy and system performance.
+                            </p>
+                        </div>
+                        <!-- LLaVA Next Image -->
+                        <img src="images/llava_next.png" alt="LLaVA Next" />
+                    </div>
+                    <!-- Removed the vqa-right div -->
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="title">
+                    World Model Inspired by Google's Genie 🧞
+                </div>
+                <div class="description">
+                    <p>
+                        • Built an efficient world model with three components:
+                        Frame Tokenizer for visual feature extraction, Latent
+                        Action Model for inferring actions, and Dynamics Model
+                        for predicting future frames.
+                    </p>
+                    <p>
+                        • Used EfficientVit for tokenizing images into discrete
+                        latents, then decoded them into continuous features with
+                        MobileStyleGAN.
+                    </p>
+                    <p>
+                        • Replaced Genie’s ST-Transformer with a lightweight MLP
+                        to infer actions between frame pairs and applied
+                        quantization to latent frames.
+                    </p>
+                    <p>
+                        • Experimented with and replaced various components to
+                        enable real-time simulation, finding that a lightweight
+                        MLP performs similarly to large transformers, and
+                        working on the image level with EfficientVit and
+                        MobileStyleGAN exponentially increased speed.
+                    </p>
+                </div>
+
+                <!-- Video Section -->
+                <div class="video-container">
+                    <video
+                        class="video"
+                        src="videos/pacman1_resized.mp4"
+                        autoplay
+                        muted
+                        loop
+                    ></video>
+                    <video
+                        class="video"
+                        src="videos/genie_example1.mp4"
+                        autoplay
+                        muted
+                        loop
+                    ></video>
+                    <video
+                        class="video"
+                        src="videos/genie_example2.mp4"
+                        autoplay
+                        muted
+                        loop
+                    ></video>
+                    <video
+                        class="video"
+                        src="videos/genie_example3.mp4"
+                        autoplay
+                        muted
+                        loop
+                    ></video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Face Transformation and Manipulation App Section -->
+        <section>
+            <div class="container">
+                <div class="media-container">
+                    <div class="text-section">
+                        <div class="title">
+                            Mobile Face Transformation and Manipulation App 📱
+                        </div>
+                        <div class="description">
+                            <p>
+                                • Developed a real-time face transformation app
+                                using MobileStyleGAN, EfficientFormer, CLIP, and
+                                StyleGAN2.
+                            </p>
+                            <p>
+                                • Trained an encoder to inject facial features
+                                at various stages of the StyleGAN decoder,
+                                creating a detailed transformation pipeline
+                                optimized for CoreML, achieving 30fps on mobile
+                                devices.
+                            </p>
+                            <p>
+                                • Contributed to the app's success at the
+                                MobileXGenAI Hackathon hosted by Samsung Next.
+                            </p>
+                            <p>
+                                • Combined multiple losses from foundation
+                                models and facial feature extractors to ensure
+                                high-quality transformations.
+                            </p>
+                        </div>
+                        <!-- Image Caption Positioned at the Bottom -->
+                        <div class="image-caption">
+                            I implemented the training pipeline described in
+                            <a
+                                href="https://arxiv.org/pdf/2406.10601"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >arxiv.org/abs/2406.10601</a
+                            >, which allows for high-quality reconstruction of
+                            fine image details while preserving editability by
+                            utilizing both w-latents and F-latents, ensuring
+                            effective manipulation of real image attributes even
+                            in challenging cases.
+                        </div>
+                    </div>
+                    <div class="video-section">
+                        <video
+                            src="videos/celebrityLook.mp4"
+                            autoplay
+                            muted
+                            loop
+                        ></video>
+                    </div>
+                </div>
+
+                <!-- Image Section remains below -->
+                <div class="image-container">
+                    <img
+                        src="images/stylegan_inversion.png"
+                        alt="StyleGAN Inversion"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section>
+            <div class="container">
+                <div class="title">Research Engineer at Israeli Navy</div>
+                <div class="description">
+                    <p>
+                        • Adapted foundation models, like EnCodec, to sonar and
+                        audio data with multi-stage training, freezing layers,
+                        and fine-tuning using LoRA.
+                    </p>
+                    <p>
+                        • Trained self-supervised models, including masked
+                        autoencoders, on raw audio and spectrograms using large
+                        amounts of unlabeled data.
+                    </p>
+                    <p>
+                        • Applied semi-supervised learning, pseudo-labeling, and
+                        mixup techniques to improve generalization with limited
+                        labeled data.
+                    </p>
+                    <p>
+                        • Built expert ensembles and distilled them into student
+                        models, enhancing robustness and inference efficiency.
+                    </p>
+                    <p>
+                        • Conducted extensive data cleaning and preprocessing,
+                        addressing noise and inconsistencies in sonar data.
+                    </p>
+                    <p>
+                        • Used neural architecture search to optimize models for
+                        specific sonar and audio tasks, with RBF-KAN for final
+                        layers and linear layers elsewhere.
+                    </p>
+                    <p>
+                        • Integrated state-of-the-art techniques from leading
+                        research and Kaggle competition winners to solve complex
+                        sonar challenges.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="title">Research Engineer at nlpearl.ai</div>
+                <div class="description">
+                    <p>
+                        • Developed real-time systems to detect conversational
+                        pauses and suggest optimal starter sentences for AI
+                        agents using fine-tuned LLMs with specialized prediction
+                        heads.
+                    </p>
+                    <p>
+                        • Experimented with various architectures, including
+                        encoder-based and decoder-pretrained models, applying
+                        LoRA and multi-stage training to enhance prediction
+                        accuracy.
+                    </p>
+                    <p>
+                        • Designed a small language model (SLM) to generate
+                        task-specific tokens, enabling multi-task outputs from a
+                        single fine-tuned model for efficient real-time
+                        inference.
+                    </p>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
