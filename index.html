@@ -385,8 +385,67 @@
                 </div>
             </div>
         </section>
+        <section>
+            <div class="container">
+                <div class="title">
+                    ControlNet for Diffusion Transformers 🎨
+                </div>
+                <div class="media-container">
+                    <!-- Left column: Text and Images -->
+                    <div class="text-section">
+                        <div class="description">
+                            <p>
+                                • Built a ControlNet-like module for
+                                fine-grained control over text-to-image
+                                diffusion models, extending the ControlNet-XS
+                                feedback system.
+                            </p>
+                            <p>
+                                • Evaluated against Sana’s ControlNet
+                                architecture, achieving better performance
+                                across all metrics.
+                            </p>
+                            <p>
+                                • Used zero convolution layers to inject
+                                conditioning without disrupting pretrained
+                                features.
+                            </p>
+                            <p>
+                                • Implemented the architecture with efficient
+                                training, lazy data loading, and reduced memory
+                                overhead.
+                            </p>
+                        </div>
+                        <!-- ControlNet Architecture Image -->
+                        <div class="image-container">
+                            <img
+                                src="images/controlnet_architecture.png"
+                                alt="ControlNet Architecture"
+                                style="max-height: 420px"
+                            />
+                        </div>
+                        <!-- ControlNet Evaluation Image -->
+                        <div class="image-container">
+                            <img
+                                src="images/controlnet_eval.png"
+                                alt="ControlNet Evaluation"
+                            />
+                        </div>
+                    </div>
+                    <!-- Right column: Video -->
+                    <div class="video-section">
+                        <video
+                            src="videos/controlnet.mp4"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                        ></video>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Projects Section -->
         <section>
             <div class="container">
                 <div class="title">Visual Question Answering 🔍</div>
