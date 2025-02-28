@@ -23,24 +23,24 @@
                 padding-right: 20px;
             }
 
-            /* Header */
+            /* Header - REDUCED HEIGHT */
             header {
                 background: #333;
                 color: #fff;
-                padding: 15px;
+                padding: 10px; /* Reduced from 15px */
                 border-bottom: #77b300 3px solid;
             }
 
             header h1 {
                 text-align: left;
                 margin: 0;
-                font-size: 28px;
+                font-size: 24px; /* Reduced from 28px */
             }
 
             /* Sections */
             section {
-                padding: 10px 0;
-                margin-bottom: 20px;
+                padding: 8px 0; /* Reduced from 10px 0 */
+                margin-bottom: 15px; /* Reduced from 20px */
                 background: #fff;
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -65,21 +65,22 @@
                 color: #555;
             }
 
-            /* Button Container */
+            /* Button Container - REDUCED HEIGHT */
             .button-container {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 10px;
-                padding-left: 20px; /* Align with text */
-                margin-top: 10px;
+                gap: 8px; /* Reduced from 10px */
+                padding-left: 15px; /* Reduced from 20px */
+                margin-top: 8px; /* Reduced from 10px */
+                margin-bottom: 8px; /* Added to reduce bottom space */
             }
 
-            /* Buttons */
+            /* Buttons - SMALLER */
             .button {
                 display: flex;
                 align-items: center;
-                padding: 8px 15px;
-                font-size: 1.1em;
+                padding: 6px 12px; /* Reduced from 8px 15px */
+                font-size: 1em; /* Reduced from 1.1em */
                 color: #fff;
                 border-radius: 5px;
                 text-decoration: none;
@@ -115,12 +116,12 @@
                 background-color: #ffdd44;
             }
 
-            /* Contact Information */
+            /* Contact Information - SMALLER */
             .contact {
                 display: flex;
                 align-items: center;
-                margin: 0 10px;
-                font-size: 1.1em;
+                margin: 0 8px; /* Reduced from 0 10px */
+                font-size: 1em; /* Reduced from 1.1em */
                 color: #555;
             }
 
@@ -217,15 +218,18 @@
                 min-width: 300px;
             }
 
-            .vqa-left img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Center the LLaVA Next image */
+            .llava-image-container {
+                display: flex;
+                justify-content: center;
                 margin-top: 20px;
             }
 
-            /* Removed .vqa-right class and related styles */
+            .llava-image-container img {
+                max-height: 189px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
 
             /* Responsive Layout for Tablets */
             @media (max-width: 1024px) {
@@ -401,7 +405,7 @@
                                 feedback system.
                             </p>
                             <p>
-                                • Evaluated against Sana’s ControlNet
+                                • Evaluated against Sana's ControlNet
                                 architecture, achieving better performance
                                 across all metrics.
                             </p>
@@ -421,7 +425,7 @@
                             <img
                                 src="images/controlnet_architecture.png"
                                 alt="ControlNet Architecture"
-                                style="max-height: 420px"
+                                style="max-height: 430px"
                             />
                         </div>
                         <!-- ControlNet Evaluation Image -->
@@ -479,10 +483,11 @@
                                 accuracy and system performance.
                             </p>
                         </div>
-                        <!-- LLaVA Next Image -->
-                        <img src="images/llava_next.png" alt="LLaVA Next" />
+                        <!-- LLaVA Next Image - Now centered -->
+                        <div class="llava-image-container">
+                            <img src="images/llava_next.png" alt="LLaVA Next" />
+                        </div>
                     </div>
-                    <!-- Removed the vqa-right div -->
                 </div>
             </div>
         </section>
@@ -505,7 +510,7 @@
                         MobileStyleGAN.
                     </p>
                     <p>
-                        • Replaced Genie’s ST-Transformer with a lightweight MLP
+                        • Replaced Genie's ST-Transformer with a lightweight MLP
                         to infer actions between frame pairs and applied
                         quantization to latent frames.
                     </p>
