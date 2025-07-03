@@ -1,726 +1,211 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-GCX12GRMZB"
-        ></script>
-        <script data-goatcounter="https://irotem98website.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag("js", new Date());
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Analytics (unchanged) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCX12GRMZB"></script>
+  <script data-goatcounter="https://irotem98website.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-GCX12GRMZB");
+  </script>
 
-            gtag("config", "G-GCX12GRMZB");
-        </script>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Rotem Israeli - Research Engineer</title>
-        <style>
-            /* Base Styles */
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f9f9f9;
-                line-height: 1.4;
-            }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rotem Israeli – Research Engineer</title>
 
-            /* Container */
-            .container {
-                width: 80%;
-                max-width: 1200px;
-                margin: auto;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
+  <!-- Google Fonts & Tailwind CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-            /* Header - REDUCED HEIGHT */
-            header {
-                background: #333;
-                color: #fff;
-                padding: 10px; /* Reduced from 15px */
-                border-bottom: #77b300 3px solid;
-            }
+  <style>
+    /* Neo-Brutalist helper */
+    .neo-brutalist {
+      border: 4px solid #000;
+      box-shadow: 8px 8px 0 #000;
+      transition: 0.15s;
+    }
+    .neo-brutalist:hover {
+      box-shadow: 6px 6px 0 #000;
+      transform: translate(2px, 2px);
+    }
 
-            header h1 {
-                text-align: left;
-                margin: 0;
-                font-size: 24px; /* Reduced from 28px */
-            }
+    /* Typography & base */
+    body {
+      font-family: 'Roboto Mono', monospace;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+    }
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.5rem;
+    }
 
-            /* Sections */
-            section {
-                padding: 8px 0; /* Reduced from 10px 0 */
-                margin-bottom: 15px; /* Reduced from 20px */
-                background: #fff;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
+    /* Scroll progress bar */
+    #scroll-progress {
+      height: 6px; /* beefier for brutalist style */
+      background: #FFD166; /* yellow consistent with your buttons */
+      border-bottom: 4px solid #000;
+      box-shadow: 0 4px 0 #000;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 3000;
+      transition: width 0.1s linear;
+    }
+  </style>
 
-            /* Titles */
-            .title {
-                font-weight: bold;
-                font-size: 1.3em;
-                margin-top: 10px;
-                margin-bottom: 10px;
-            }
+  <script>
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const scrolled = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+  </script>
+</head>
 
-            /* Descriptions */
-            .description {
-                margin-left: 20px;
-                font-size: 1.1em;
-            }
+<body class="p-4 md:p-8">
 
-            .description p {
-                margin: 8px 0;
-                color: #555;
-            }
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
 
-            /* Button Container - REDUCED HEIGHT */
-            .button-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px; /* Reduced from 10px */
-                padding-left: 15px; /* Reduced from 20px */
-                margin-top: 8px; /* Reduced from 10px */
-                margin-bottom: 8px; /* Added to reduce bottom space */
-            }
+  <div class="max-w-6xl mx-auto space-y-10">
 
-            /* Buttons - SMALLER */
-            .button {
-                display: flex;
-                align-items: center;
-                padding: 6px 12px; /* Reduced from 8px 15px */
-                font-size: 1em; /* Reduced from 1.1em */
-                color: #fff;
-                border-radius: 5px;
-                text-decoration: none;
-                transition: background-color 0.3s ease;
-            }
+    <!-- HEADER -->
+    <header class="neo-brutalist bg-[#333] text-white px-6 py-4">
+      <h1 class="text-3xl md:text-4xl">Rotem Israeli – Research Engineer</h1>
+    </header>
 
-            .button img.icon {
-                margin-right: 8px;
-            }
+    <!-- CONTACT / SOCIAL -->
+    <section class="neo-brutalist bg-white p-6">
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://huggingface.co/irotem98" target="_blank" class="neo-brutalist bg-[#ffcc00] text-black uppercase font-semibold px-4 py-2 flex items-center gap-2">
+          <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="" class="w-6" />Hugging Face
+        </a>
+        <a href="https://github.com/rotem154154" target="_blank" class="neo-brutalist bg-[#24292f] text-white uppercase font-semibold px-4 py-2 flex items-center gap-2">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" class="w-6" />GitHub
+        </a>
+        <a href="https://linkedin.com/in/rotem-israeli-04ab10179" target="_blank" class="neo-brutalist bg-[#0077b5] text-white uppercase font-semibold px-4 py-2 flex items-center gap-2">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="" class="w-6" />LinkedIn
+        </a>
+        <a href="mailto:irotem98@gmail.com" class="neo-brutalist bg-white text-black px-4 py-2 flex items-center gap-2">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" class="w-6" />irotem98@gmail.com
+        </a>
+        <a href="tel:+972534326592" class="neo-brutalist bg-white text-black px-4 py-2 flex items-center gap-2">
+          <img src="https://e7.pngegg.com/pngimages/759/922/png-clipart-telephone-logo-iphone-telephone-call-smartphone-phone-electronics-text.png" alt="" class="w-6" />(+972) 53-432-6592
+        </a>
+      </div>
+    </section>
 
-            .button.github {
-                background-color: #333;
-            }
+    <!-- PROJECTS -->
 
-            .button.github:hover {
-                background-color: #5c5c5c;
-            }
+    <!-- CONTROLNET -->
+    <article class="neo-brutalist bg-white p-6">
+      <h2 class="text-2xl md:text-3xl mb-4">ControlNet for Diffusion Transformers 🎨</h2>
 
-            .button.linkedin {
-                background-color: #0077b5;
-            }
+      <div class="flex flex-col md:flex-row gap-6">
+        <!-- LEFT: bullets + diagram + table -->
+        <div class="md:w-1/2 flex flex-col gap-4">
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Built a ControlNet-like module for fine-grained text-to-image control, extending ControlNet-XS.</li>
+            <li>Outperformed Sana’s ControlNet baseline across all metrics.</li>
+            <li>Injected conditioning with zero-conv layers to preserve pretrained features.</li>
+            <li>Engineered efficient training with lazy loading & reduced memory footprint.</li>
+          </ul>
 
-            .button.linkedin:hover {
-                background-color: #005582;
-            }
+          <img src="images/controlnet_architecture.png" alt="Architecture diagram" class="neo-brutalist" />
+          <img src="images/controlnet_eval.png" alt="Results table" class="neo-brutalist" />
+        </div>
 
-            .button.huggingface {
-                background-color: #ffcc00;
-                color: #333;
-            }
+        <!-- RIGHT: sample video -->
+        <div class="md:w-1/2">
+          <video src="videos/controlnet.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </article>
 
-            .button.huggingface:hover {
-                background-color: #ffdd44;
-            }
+    <!-- VQA -->
+    <article class="neo-brutalist bg-white p-6 space-y-4">
+      <h2 class="text-2xl md:text-3xl">Visual Question Answering 🔍</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Developed a VQA pipeline inspired by LLaVA: vision encoder ➜ connector ➜ language model.</li>
+        <li>Staged training: connector first, then LoRA-fine-tuned the LLM.</li>
+        <li>Bench-tested SigLIP, MobileCLIP, DINOv2, EfficientSAM for robust visual features.</li>
+        <li>Added dynamic high-res processing via LLaVA-NeXT + <code>s²</code> wrapper.</li>
+        <li>Compared Gemma, Qwen, SmolLM, OpenELM for answer quality.</li>
+      </ul>
+      <img src="images/llava_next.png" alt="LLaVA-Next" class="mx-auto neo-brutalist" />
+    </article>
 
-            /* Contact Information - SMALLER */
-            .contact {
-                display: flex;
-                align-items: center;
-                margin: 0 8px; /* Reduced from 0 10px */
-                font-size: 1em; /* Reduced from 1.1em */
-                color: #555;
-            }
+    <!-- GENIE -->
+    <article class="neo-brutalist bg-white p-6 space-y-4">
+      <h2 class="text-2xl md:text-3xl">World Model à la Google Genie 🧞</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Frame Tokenizer ➜ Latent Action Model ➜ Dynamics Model pipeline.</li>
+        <li>EfficientVit + MobileStyleGAN compression for ultra-fast tokenization / decoding.</li>
+        <li>Replaced Genie’s ST-Transformer with a quantized lightweight MLP.</li>
+      </ul>
+      <div class="grid lg:grid-cols-4 gap-4">
+        <video src="videos/pacman1_resized.mp4" autoplay muted loop playsinline></video>
+        <video src="videos/genie_example1.mp4" autoplay muted loop playsinline></video>
+        <video src="videos/genie_example2.mp4" autoplay muted loop playsinline></video>
+        <video src="videos/genie_example3.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </article>
 
-            .contact img {
-                width: 24px;
-                margin-right: 10px;
-            }
+    <!-- MOBILE FACE TRANSFORMATION -->
+    <article class="neo-brutalist bg-white p-6 space-y-4">
+      <h2 class="text-2xl md:text-3xl">Mobile Face Transformation App 📱</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <ul class="list-disc pl-6 space-y-1">
+          <li>🏆 First place at Samsung Next MobileXGenAI Hackathon—real-time, 30fps face transformations on mobile (CoreML optimized).</li>
+          <li>Custom encoders inject facial features at multiple StyleGAN decoder layers for detailed, natural edits.</li>
+          <li>Combined pixel, perceptual, and adversarial losses for robust and identity-preserving results.</li>
+          <li>Efficient pipeline (MobileStyleGAN + EfficientFormer + CLIP) enables high-quality transformations fully on-device.</li>
+          <li>Used both <code>w</code>-latents and <code>F</code>-latents for flexible and realistic facial attribute manipulation.</li>
+          <li>App is fully edge-compatible: minimal memory footprint, no server-side inference needed.</li>
+        </ul>
+        <video src="videos/celebrityLook.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <img src="images/stylegan_inversion.png" alt="StyleGAN Inversion" class="mx-auto neo-brutalist" />
+    </article>
 
-            /* Video Container for Genie Section */
-            .video-container {
-                display: flex;
-                gap: 10px; /* Space between videos */
-                flex-wrap: wrap;
-                justify-content: center; /* Center the videos */
-                margin-top: 20px;
-            }
+    <!-- EXPERIENCE -->
+    <section class="grid md:grid-cols-2 gap-10">
+      <article class="neo-brutalist bg-white p-6 space-y-2">
+        <h2 class="text-xl md:text-2xl">Research Engineer at nlpearl.ai</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Real-time pause detection & starter suggestions via fine-tuned LLMs.</li>
+          <li>Explored encoder vs decoder architectures with LoRA + multi-stage training.</li>
+          <li>Designed SLM generating task-specific tokens for multi-task inference.</li>
+        </ul>
+      </article>
 
-            /* Video Element Styling for Genie Section */
-            .video-container video.video {
-                width: 23%; /* Approximately 4 videos side by side with gaps */
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                height: auto;
-            }
+      <article class="neo-brutalist bg-white p-6 space-y-2">
+        <h2 class="text-xl md:text-2xl">Research Engineer at Israeli Navy</h2>
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Adapted EnCodec & WavTokenizer to sonar/audio with staged LoRA training.</li>
+          <li>Self-supervised training on vast unlabeled sonar spectrograms.</li>
+          <li>Semi-supervised, mixup & pseudo-labeling for robustness.</li>
+          <li>Distilled expert ensembles to lightweight students → faster inference.</li>
+          <li>Extensive data cleaning & NAS (RBF-KAN heads) for mission-critical accuracy.</li>
+        </ul>
+      </article>
+    </section>
+  </div>
 
-            /* Media Container for Mobile Face Transformation Section */
-            .media-container {
-                display: flex;
-                gap: 20px;
-                flex-wrap: wrap;
-                align-items: stretch; /* Ensure both columns have equal height */
-                margin-top: 20px;
-            }
+  <!-- Floating badge removed -->
 
-            .media-container .text-section {
-                flex: 1;
-                min-width: 250px;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .media-container .description {
-                flex: 1; /* Take up available space */
-            }
-
-            .media-container .image-caption {
-                margin-top: auto; /* Push to the bottom */
-                font-size: 0.9em;
-                color: #555;
-                text-align: left; /* Align text to the left */
-                margin-bottom: 10px; /* Space below caption */
-            }
-
-            .media-container .video-section {
-                flex: 1;
-                min-width: 250px;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start; /* Align the video to the top */
-            }
-
-            .media-container .video-section video {
-                width: 100%;
-                max-width: 400px; /* Adjust as needed */
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                height: auto;
-            }
-
-            /* Image Container for Mobile Face Transformation Section */
-            .image-container {
-                margin-top: 20px;
-                text-align: center;
-            }
-
-            .image-container img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            /* Additional Styles for VQA Layout */
-            .vqa-layout {
-                display: flex;
-                gap: 20px;
-                align-items: flex-start;
-                flex-wrap: wrap;
-                margin-top: 20px;
-            }
-
-            .vqa-left {
-                flex: 1;
-                min-width: 300px;
-            }
-
-            /* Center the LLaVA Next image */
-            .llava-image-container {
-                display: flex;
-                justify-content: center;
-                margin-top: 20px;
-            }
-
-            .llava-image-container img {
-                max-height: 189px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            /* Responsive Layout for Tablets */
-            @media (max-width: 1024px) {
-                .video-container video.video {
-                    width: 31%; /* 3 videos per row */
-                }
-
-                .vqa-layout {
-                    flex-direction: column;
-                }
-
-                .vqa-left {
-                    flex: none;
-                    width: 100%;
-                }
-            }
-
-            /* Responsive Layout for Smaller Screens */
-            @media (max-width: 768px) {
-                .container {
-                    width: 90%;
-                }
-
-                .button-container {
-                    padding-left: 0; /* Remove padding on smaller screens */
-                    justify-content: center;
-                }
-
-                .description {
-                    margin-left: 0;
-                    padding: 0 10px;
-                }
-
-                .video-container video.video {
-                    width: 48%; /* 2 videos per row */
-                }
-
-                .media-container {
-                    flex-direction: column;
-                }
-
-                .media-container .video-section {
-                    max-width: 100%;
-                }
-
-                .vqa-layout {
-                    flex-direction: column;
-                }
-
-                .vqa-left {
-                    width: 100%;
-                }
-            }
-
-            /* Responsive Layout for Very Small Screens */
-            @media (max-width: 480px) {
-                .video-container video.video {
-                    width: 100%; /* Stack videos vertically */
-                }
-
-                .media-container {
-                    flex-direction: column;
-                }
-
-                .media-container .video-section {
-                    max-width: 100%;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <h1>Rotem Israeli - Research Engineer</h1>
-            </div>
-        </header>
-
-        <!-- Contact Information with Buttons -->
-        <section>
-            <div class="container button-container">
-                <!-- Hugging Face Button -->
-                <a
-                    href="https://huggingface.co/irotem98"
-                    class="button huggingface"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        class="icon"
-                        src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
-                        alt="Hugging Face"
-                        width="24"
-                    />
-                    Hugging Face
-                </a>
-
-                <!-- GitHub Button -->
-                <a
-                    href="https://github.com/rotem154154"
-                    class="button github"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        class="icon"
-                        src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                        alt="GitHub"
-                        width="24"
-                    />
-                    GitHub
-                </a>
-
-                <!-- LinkedIn Button -->
-                <a
-                    href="https://linkedin.com/in/rotem-israeli-04ab10179"
-                    class="button linkedin"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <img
-                        class="icon"
-                        src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
-                        alt="LinkedIn"
-                        width="24"
-                    />
-                    LinkedIn
-                </a>
-
-                <!-- Email -->
-                <div class="contact">
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
-                        alt="Email"
-                        width="24"
-                    />
-                    <a
-                        href="mailto:irotem98@gmail.com"
-                        style="text-decoration: none; color: inherit"
-                    >
-                        irotem98@gmail.com
-                    </a>
-                </div>
-
-                <!-- Phone with Custom Logo -->
-                <div class="contact">
-                    <img
-                        src="https://e7.pngegg.com/pngimages/759/922/png-clipart-telephone-logo-iphone-telephone-call-smartphone-phone-electronics-text.png"
-                        alt="Phone"
-                        width="24"
-                    />
-                    <a
-                        href="tel:+972534326592"
-                        style="text-decoration: none; color: inherit"
-                    >
-                        (+972) 53-432-6592
-                    </a>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="title">
-                    ControlNet for Diffusion Transformers 🎨
-                </div>
-                <div class="media-container">
-                    <!-- Left column: Text and Images -->
-                    <div class="text-section">
-                        <div class="description">
-                            <p>
-                                • Built a ControlNet-like module for
-                                fine-grained control over text-to-image
-                                diffusion models, extending the ControlNet-XS
-                                feedback system.
-                            </p>
-                            <p>
-                                • Evaluated against Sana's ControlNet
-                                architecture, achieving better performance
-                                across all metrics.
-                            </p>
-                            <p>
-                                • Used zero convolution layers to inject
-                                conditioning without disrupting pretrained
-                                features.
-                            </p>
-                            <p>
-                                • Implemented the architecture with efficient
-                                training, lazy data loading, and reduced memory
-                                overhead.
-                            </p>
-                        </div>
-                        <!-- ControlNet Architecture Image -->
-                        <div class="image-container">
-                            <img
-                                src="images/controlnet_architecture.png"
-                                alt="ControlNet Architecture"
-                                style="max-height: 430px"
-                            />
-                        </div>
-                        <!-- ControlNet Evaluation Image -->
-                        <div class="image-container">
-                            <img
-                                src="images/controlnet_eval.png"
-                                alt="ControlNet Evaluation"
-                            />
-                        </div>
-                    </div>
-                    <!-- Right column: Video -->
-                    <div class="video-section">
-                        <video
-                            src="videos/controlnet.mp4"
-                            autoplay
-                            muted
-                            loop
-                            playsinline
-                        ></video>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="title">Visual Question Answering 🔍</div>
-                <div class="vqa-layout">
-                    <div class="vqa-left">
-                        <div class="description">
-                            <p>
-                                • Developed a Visual Question Answering (VQA)
-                                system by combining vision models, a connector
-                                for visual-text alignment, and a language model,
-                                inspired by LLaVA.
-                            </p>
-                            <p>
-                                • First trained the connector and then
-                                fine-tuned the language model using LoRA.
-                            </p>
-                            <p>
-                                • Optimized feature extraction by experimenting
-                                with and combining multiple vision models,
-                                including SigLIP, MobileCLIP, DINOv2, and
-                                EfficientSAM.
-                            </p>
-                            <p>
-                                • Enhanced visual representations through
-                                dynamic high-resolution processing with
-                                LLaVA-NeXT and the s² wrapper.
-                            </p>
-                            <p>
-                                • Evaluated multiple language models (Gemma,
-                                Qwen, SmolLM, OpenELM) to improve response
-                                accuracy and system performance.
-                            </p>
-                        </div>
-                        <!-- LLaVA Next Image - Now centered -->
-                        <div class="llava-image-container">
-                            <img src="images/llava_next.png" alt="LLaVA Next" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="title">
-                    World Model Inspired by Google's Genie 🧞
-                </div>
-                <div class="description">
-                    <p>
-                        • Built an efficient world model with three components:
-                        Frame Tokenizer for visual feature extraction, Latent
-                        Action Model for inferring actions, and Dynamics Model
-                        for predicting future frames.
-                    </p>
-                    <p>
-                        • Used EfficientVit for tokenizing images into discrete
-                        latents, then decoded them into continuous features with
-                        MobileStyleGAN.
-                    </p>
-                    <p>
-                        • Replaced Genie's ST-Transformer with a lightweight MLP
-                        to infer actions between frame pairs and applied
-                        quantization to latent frames.
-                    </p>
-                    <p>
-                        • Experimented with and replaced various components to
-                        enable real-time simulation, finding that a lightweight
-                        MLP performs similarly to large transformers, and
-                        working on the image level with EfficientVit and
-                        MobileStyleGAN exponentially increased speed.
-                    </p>
-                </div>
-
-                <!-- Video Section -->
-                <div class="video-container">
-                    <video
-                        class="video"
-                        src="videos/pacman1_resized.mp4"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                    ></video>
-                    <video
-                        class="video"
-                        src="videos/genie_example1.mp4"
-                        autoplay
-                        muted
-                        loop
-                    ></video>
-                    <video
-                        class="video"
-                        src="videos/genie_example2.mp4"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                    ></video>
-                    <video
-                        class="video"
-                        src="videos/genie_example3.mp4"
-                        autoplay
-                        muted
-                        loop
-                        playsinline
-                    ></video>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mobile Face Transformation and Manipulation App Section -->
-        <section>
-            <div class="container">
-                <div class="media-container">
-                    <div class="text-section">
-                        <div class="title">
-                            Mobile Face Transformation and Manipulation App 📱
-                        </div>
-                        <div class="description">
-                            <p>
-                                • Developed a real-time face transformation app
-                                using MobileStyleGAN, EfficientFormer, CLIP, and
-                                StyleGAN2.
-                            </p>
-                            <p>
-                                • Trained an encoder to inject facial features
-                                at various stages of the StyleGAN decoder,
-                                creating a detailed transformation pipeline
-                                optimized for CoreML, achieving 30fps on mobile
-                                devices.
-                            </p>
-                            <p>
-                                • Contributed to the app's success at the
-                                MobileXGenAI Hackathon hosted by Samsung Next.
-                            </p>
-                            <p>
-                                • Combined multiple losses from foundation
-                                models and facial feature extractors to ensure
-                                high-quality transformations.
-                            </p>
-                        </div>
-                        <!-- Image Caption Positioned at the Bottom -->
-                        <div class="image-caption">
-                            I implemented the training pipeline described in
-                            <a
-                                href="https://arxiv.org/pdf/2406.10601"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                >arxiv.org/abs/2406.10601</a
-                            >, which allows for high-quality reconstruction of
-                            fine image details while preserving editability by
-                            utilizing both w-latents and F-latents, ensuring
-                            effective manipulation of real image attributes even
-                            in challenging cases.
-                        </div>
-                    </div>
-                    <div class="video-section">
-                        <video
-                            src="videos/celebrityLook.mp4"
-                            autoplay
-                            muted
-                            loop
-                            playsinline
-                        ></video>
-                    </div>
-                </div>
-
-                <!-- Image Section remains below -->
-                <div class="image-container">
-                    <img
-                        src="images/stylegan_inversion.png"
-                        alt="StyleGAN Inversion"
-                    />
-                </div>
-            </div>
-        </section>
-        <!-- Professional Experience Section - nlpearl.ai comes first -->
-        <section>
-            <div class="container">
-                <div class="title">Research Engineer at nlpearl.ai</div>
-                <div class="description">
-                    <p>
-                        • Developed real-time systems to detect conversational
-                        pauses and suggest optimal starter sentences for AI
-                        agents using fine-tuned LLMs with specialized prediction
-                        heads.
-                    </p>
-                    <p>
-                        • Experimented with various architectures, including
-                        encoder-based and decoder-pretrained models, applying
-                        LoRA and multi-stage training to enhance prediction
-                        accuracy.
-                    </p>
-                    <p>
-                        • Designed a small language model (SLM) to generate
-                        task-specific tokens, enabling multi-task outputs from a
-                        single fine-tuned model for efficient real-time
-                        inference.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Engineer at Israeli Navy - Updated text -->
-        <section>
-            <div class="container">
-                <div class="title">Research Engineer at Israeli Navy</div>
-                <div class="description">
-                    <p>
-                        • Led long-term research initiatives focused on adapting
-                        foundation models, such as EnCodec and WavTokenizer, to
-                        sonar and audio data, employing multi-stage training,
-                        freezing layers, and fine-tuning with LoRA for
-                        task-specific optimizations.
-                    </p>
-                    <p>
-                        • Prioritized large-scale research and development
-                        efforts while collaborating on additional projects
-                        across the department.
-                    </p>
-                    <p>
-                        • Trained self-supervised models, including masked
-                        autoencoders, on large amounts of unlabeled audio data
-                        and spectrograms, with a focus on scaling solutions for
-                        real-world sonar applications.
-                    </p>
-                    <p>
-                        • Applied semi-supervised learning, pseudo-labeling, and
-                        mixup techniques to improve model generalization,
-                        especially with limited labeled data.
-                    </p>
-                    <p>
-                        • Developed expert ensembles and distilled them into
-                        student models, significantly improving robustness and
-                        inference efficiency in production environments.
-                    </p>
-                    <p>
-                        • Spearheaded extensive data cleaning and preprocessing
-                        workflows to address noise and inconsistencies, ensuring
-                        high data quality for critical sonar operations.
-                    </p>
-                    <p>
-                        • Utilized neural architecture search to optimize models
-                        for specific sonar and audio tasks, with a focus on
-                        performance improvements through RBF-KAN for final
-                        layers and linear layers elsewhere.
-                    </p>
-                    <p>
-                        • Integrated state-of-the-art techniques from leading
-                        research papers and Kaggle competition winners to tackle
-                        complex sonar challenges, contributing to strategic
-                        advancements in military research.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </body>
+</body>
 </html>
