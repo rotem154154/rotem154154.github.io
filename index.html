@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <!-- Analytics (unchanged) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCX12GRMZB"></script>
   <script data-goatcounter="https://irotem98website.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script>
@@ -10,112 +9,66 @@
     gtag("js", new Date());
     gtag("config", "G-GCX12GRMZB");
   </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rotem Israeli – Research Engineer</title>
-
-  <!-- Google Fonts & Tailwind CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    /* Neo-Brutalist helper */
-    .neo-brutalist {
-      border: 4px solid #000;
-      box-shadow: 8px 8px 0 #000;
-      transition: 0.15s;
-    }
-    .neo-brutalist:hover {
-      box-shadow: 6px 6px 0 #000;
-      transform: translate(2px, 2px);
-    }
-
-    /* Typography & base */
-    body {
-      font-family: 'Roboto Mono', monospace;
-      background: #f5f5f5;
-      color: #1a1a1a;
-      line-height: 1.5;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 1px;
-    }
-    video {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 0.5rem;
-    }
-
-    /* Scroll progress bar */
-    #scroll-progress {
-      height: 6px; /* beefier for brutalist style */
-      background: #FFD166; /* yellow consistent with your buttons */
-      border-bottom: 4px solid #000;
-      box-shadow: 0 4px 0 #000;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 3000;
-      transition: width 0.1s linear;
+    .neo-brutalist{border:4px solid #000;box-shadow:8px 8px 0 #000;transition:.15s;}
+    .neo-brutalist:hover{box-shadow:6px 6px 0 #000;transform:translate(2px,2px);}
+    body{font-family:'Roboto Mono',monospace;background:#f5f5f5;color:#1a1a1a;line-height:1.5;}
+    h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:1px;}
+    video{width:100%;height:auto;display:block;border-radius:.5rem;}
+    #scroll-progress{
+      height:6px;
+      background:#FFD166;
+      border-bottom:4px solid #000;
+      box-shadow:0 4px 0 #000;
+      width:0;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:3000;
+      transition:width .1s linear;
     }
   </style>
-
   <script>
     window.addEventListener('scroll', () => {
-      const doc = document.documentElement;
-      const scrollTop = doc.scrollTop;
-      const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const scrolled = (scrollTop / scrollHeight) * 100;
-      document.getElementById('scroll-progress').style.width = scrolled + '%';
+      const doc=document.documentElement;
+      const pct=(doc.scrollTop/(doc.scrollHeight-doc.clientHeight))*100;
+      document.getElementById('scroll-progress').style.width=pct+'%';
     });
   </script>
 </head>
-
 <body class="p-4 md:p-8">
-
-  <!-- Scroll Progress Bar -->
   <div id="scroll-progress"></div>
-
   <div class="max-w-6xl mx-auto space-y-10">
-
-    <!-- HEADER -->
     <header class="neo-brutalist bg-[#333] text-white px-6 py-4">
       <h1 class="text-3xl md:text-4xl">Rotem Israeli – Research Engineer</h1>
     </header>
-
-    <!-- CONTACT / SOCIAL -->
     <section class="neo-brutalist bg-white p-6">
       <div class="flex flex-wrap items-center gap-4">
         <a href="https://huggingface.co/irotem98" target="_blank" class="neo-brutalist bg-[#ffcc00] text-black uppercase font-semibold px-4 py-2 flex items-center gap-2">
-          <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="" class="w-6" />Hugging Face
+          <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="" class="w-6">Hugging Face
         </a>
         <a href="https://github.com/rotem154154" target="_blank" class="neo-brutalist bg-[#24292f] text-white uppercase font-semibold px-4 py-2 flex items-center gap-2">
-          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" class="w-6" />GitHub
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" class="w-6">GitHub
         </a>
         <a href="https://linkedin.com/in/rotem-israeli-04ab10179" target="_blank" class="neo-brutalist bg-[#0077b5] text-white uppercase font-semibold px-4 py-2 flex items-center gap-2">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="" class="w-6" />LinkedIn
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="" class="w-6">LinkedIn
         </a>
         <a href="mailto:irotem98@gmail.com" class="neo-brutalist bg-white text-black px-4 py-2 flex items-center gap-2">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" class="w-6" />irotem98@gmail.com
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" class="w-6">irotem98@gmail.com
         </a>
         <a href="tel:+972534326592" class="neo-brutalist bg-white text-black px-4 py-2 flex items-center gap-2">
-          <img src="https://e7.pngegg.com/pngimages/759/922/png-clipart-telephone-logo-iphone-telephone-call-smartphone-phone-electronics-text.png" alt="" class="w-6" />(+972) 53-432-6592
+          <img src="https://e7.pngegg.com/pngimages/759/922/png-clipart-telephone-logo-iphone-telephone-call-smartphone-phone-electronics-text.png" alt="" class="w-6">(+972) 53-432-6592
         </a>
       </div>
     </section>
-
-    <!-- PROJECTS -->
-
-    <!-- CONTROLNET -->
     <article class="neo-brutalist bg-white p-6">
       <h2 class="text-2xl md:text-3xl mb-4">ControlNet for Diffusion Transformers 🎨</h2>
-
       <div class="flex flex-col md:flex-row gap-6">
-        <!-- LEFT: bullets + diagram + table -->
         <div class="md:w-1/2 flex flex-col gap-4">
           <ul class="list-disc pl-6 space-y-1">
             <li>Built a ControlNet-like module for fine-grained text-to-image control, extending ControlNet-XS.</li>
@@ -123,19 +76,14 @@
             <li>Injected conditioning with zero-conv layers to preserve pretrained features.</li>
             <li>Engineered efficient training with lazy loading & reduced memory footprint.</li>
           </ul>
-
-          <img src="images/controlnet_architecture.png" alt="Architecture diagram" class="neo-brutalist" />
-          <img src="images/controlnet_eval.png" alt="Results table" class="neo-brutalist" />
+          <img src="images/controlnet_architecture.png" alt="Architecture diagram" class="neo-brutalist">
+          <img src="images/controlnet_eval.png" alt="Results table" class="neo-brutalist">
         </div>
-
-        <!-- RIGHT: sample video -->
         <div class="md:w-1/2">
           <video src="videos/controlnet.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
     </article>
-
-    <!-- VQA -->
     <article class="neo-brutalist bg-white p-6 space-y-4">
       <h2 class="text-2xl md:text-3xl">Visual Question Answering 🔍</h2>
       <ul class="list-disc pl-6 space-y-1">
@@ -145,10 +93,8 @@
         <li>Added dynamic high-res processing via LLaVA-NeXT + <code>s²</code> wrapper.</li>
         <li>Compared Gemma, Qwen, SmolLM, OpenELM for answer quality.</li>
       </ul>
-      <img src="images/llava_next.png" alt="LLaVA-Next" class="mx-auto neo-brutalist" />
+      <img src="images/llava_next.png" alt="LLaVA-Next" class="mx-auto neo-brutalist">
     </article>
-
-    <!-- GENIE -->
     <article class="neo-brutalist bg-white p-6 space-y-4">
       <h2 class="text-2xl md:text-3xl">World Model à la Google Genie 🧞</h2>
       <ul class="list-disc pl-6 space-y-1">
@@ -156,20 +102,18 @@
         <li>EfficientVit + MobileStyleGAN compression for ultra-fast tokenization / decoding.</li>
         <li>Replaced Genie’s ST-Transformer with a quantized lightweight MLP.</li>
       </ul>
-      <div class="grid lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <video src="videos/pacman1_resized.mp4" autoplay muted loop playsinline></video>
         <video src="videos/genie_example1.mp4" autoplay muted loop playsinline></video>
         <video src="videos/genie_example2.mp4" autoplay muted loop playsinline></video>
         <video src="videos/genie_example3.mp4" autoplay muted loop playsinline></video>
       </div>
     </article>
-
-    <!-- MOBILE FACE TRANSFORMATION -->
     <article class="neo-brutalist bg-white p-6 space-y-4">
       <h2 class="text-2xl md:text-3xl">Mobile Face Transformation App 📱</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <ul class="list-disc pl-6 space-y-1">
-          <li>🏆 First place at Samsung Next MobileXGenAI Hackathon—real-time, 30fps face transformations on mobile (CoreML optimized).</li>
+          <li>🏆 First place at Samsung Next MobileXGenAI Hackathon — real-time 30 fps face transformations on mobile (CoreML optimised).</li>
           <li>Custom encoders inject facial features at multiple StyleGAN decoder layers for detailed, natural edits.</li>
           <li>Combined pixel, perceptual, and adversarial losses for robust and identity-preserving results.</li>
           <li>Efficient pipeline (MobileStyleGAN + EfficientFormer + CLIP) enables high-quality transformations fully on-device.</li>
@@ -178,34 +122,28 @@
         </ul>
         <video src="videos/celebrityLook.mp4" autoplay muted loop playsinline></video>
       </div>
-      <img src="images/stylegan_inversion.png" alt="StyleGAN Inversion" class="mx-auto neo-brutalist" />
+      <img src="images/stylegan_inversion.png" alt="StyleGAN Inversion" class="mx-auto neo-brutalist">
     </article>
-
-    <!-- EXPERIENCE -->
     <section class="grid md:grid-cols-2 gap-10">
       <article class="neo-brutalist bg-white p-6 space-y-2">
         <h2 class="text-xl md:text-2xl">Research Engineer at nlpearl.ai</h2>
         <ul class="list-disc pl-6 space-y-1">
           <li>Real-time pause detection & starter suggestions via fine-tuned LLMs.</li>
           <li>Explored encoder vs decoder architectures with LoRA + multi-stage training.</li>
-          <li>Designed SLM generating task-specific tokens for multi-task inference.</li>
+          <li>Designed an SLM that generates task-specific tokens for multi-task inference.</li>
         </ul>
       </article>
-
       <article class="neo-brutalist bg-white p-6 space-y-2">
         <h2 class="text-xl md:text-2xl">Research Engineer at Israeli Navy</h2>
         <ul class="list-disc pl-6 space-y-1">
           <li>Adapted EnCodec & WavTokenizer to sonar/audio with staged LoRA training.</li>
           <li>Self-supervised training on vast unlabeled sonar spectrograms.</li>
-          <li>Semi-supervised, mixup & pseudo-labeling for robustness.</li>
+          <li>Semi-supervised, mixup, and pseudo-labeling for robustness.</li>
           <li>Distilled expert ensembles to lightweight students → faster inference.</li>
           <li>Extensive data cleaning & NAS (RBF-KAN heads) for mission-critical accuracy.</li>
         </ul>
       </article>
     </section>
   </div>
-
-  <!-- Floating badge removed -->
-
 </body>
 </html>
