@@ -12,14 +12,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rotem Israeli – Research Engineer</title>
+  <script>
+    (() => {
+      const storedTheme = (() => {
+        try {
+          const value = localStorage.getItem("rotem-theme");
+          return value === "light" || value === "dark" ? value : null;
+        } catch (error) {
+          return null;
+        }
+      })();
+      const prefersLight = window.matchMedia?.("(prefers-color-scheme: light)").matches;
+      document.documentElement.dataset.theme = storedTheme || (prefersLight ? "light" : "dark");
+    })();
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .neo-brutalist{border:4px solid #000;box-shadow:8px 8px 0 #000;transition:.15s;}
-    .neo-brutalist:hover{box-shadow:6px 6px 0 #000;transform:translate(2px,2px);}
-    body{font-family:'Roboto Mono',monospace;background:#f5f5f5;color:#1a1a1a;line-height:1.5;}
+    :root{
+      color-scheme:dark;
+      --page-bg:#121212;
+      --surface-bg:#242424;
+      --text:#f5f5f5;
+      --ink:#9aa9bc;
+      --shadow:#05070a;
+      --code-bg:#3a3a3a;
+      --table-border:#4a4a4a;
+      --table-head:#303030;
+      --table-alt:#2b2b2b;
+    }
+    :root[data-theme="light"]{
+      color-scheme:light;
+      --page-bg:#f5f5f5;
+      --surface-bg:#fff;
+      --text:#1a1a1a;
+      --ink:#000;
+      --shadow:#000;
+      --code-bg:#e5e7eb;
+      --table-border:#d1d5db;
+      --table-head:#e5e7eb;
+      --table-alt:#f9fafb;
+    }
+    .neo-brutalist{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--shadow);transition:.15s;}
+    .neo-brutalist:hover{box-shadow:3px 3px 0 var(--shadow);transform:translate(1px,1px);}
+    body{font-family:'Roboto Mono',monospace;background:var(--page-bg);color:var(--text);line-height:1.5;}
+    .surface{background:var(--surface-bg);color:var(--text);}
+    code{background:var(--code-bg);padding:.1rem .25rem;border-radius:.2rem;}
+    .theme-toggle{font:inherit;font-size:1.25rem;line-height:1;font-weight:600;cursor:pointer;background:var(--surface-bg);color:var(--text);min-width:3rem;min-height:3rem;}
+    .theme-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;border:0;box-shadow:none;}
+    .results-table-wrap{overflow-x:auto;border:1px solid var(--table-border);border-radius:.5rem;margin-top:1.5rem;}
+    .results-table{width:100%;min-width:100%;table-layout:fixed;border-collapse:collapse;color:var(--text);font-size:.8rem;line-height:1.25;}
+    .results-table th,.results-table td{padding:.6rem .5rem;border-bottom:1px solid var(--table-border);text-align:right;vertical-align:middle;overflow-wrap:anywhere;}
+    .results-table thead{background:var(--table-head);}
+    .results-table thead th{font-weight:600;}
+    .results-table tbody th{font-weight:400;}
+    .results-table tbody tr:nth-child(even){background:var(--table-alt);}
+    .results-table tbody tr:last-child > *{border-bottom:0;}
+    .results-table th:first-child,.results-table td:first-child{text-align:left;width:25%;}
+    .results-table th:last-child,.results-table td:last-child{width:18%;}
+    .results-table .best-row > *{font-weight:700;}
     h1,h2,h3,h4{font-family:'Bebas Neue',sans-serif;letter-spacing:1px;}
+    .experience-title{font-family:'Roboto Mono',monospace;font-weight:600;letter-spacing:0;text-transform:none;}
     video{width:100%;height:auto;display:block;border-radius:.5rem;}
+    .controlnet-layout{display:grid;gap:1.5rem;}
+    .controlnet-video-column{display:flex;align-items:flex-start;justify-content:center;}
+    .controlnet-video{width:auto;max-width:100%;max-height:800px;object-fit:contain;}
+    @media (min-width:768px){
+      .controlnet-layout{grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:start;}
+    }
+    @media (max-width:767px){
+      .controlnet-video{width:100%;max-height:none;}
+    }
     #scroll-progress{
       height:6px;
       background:#FFD166;
@@ -41,13 +104,18 @@
     });
   </script>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-3 md:p-4">
   <div id="scroll-progress"></div>
-  <div class="max-w-6xl mx-auto space-y-10">
+  <div class="max-w-7xl mx-auto space-y-4">
     <header class="neo-brutalist bg-[#333] text-white px-6 py-4">
-      <h1 class="text-3xl md:text-4xl">Rotem Israeli – Research Engineer</h1>
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <h1 class="text-3xl md:text-4xl">Rotem Israeli – Research Engineer</h1>
+        <button id="theme-toggle" type="button" class="theme-toggle neo-brutalist px-3 py-2" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
+          <span id="theme-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
     </header>
-    <section class="neo-brutalist bg-white p-6">
+    <section class="neo-brutalist surface p-4">
       <div class="flex flex-wrap items-center gap-4">
         <a href="https://huggingface.co/irotem98" target="_blank" class="neo-brutalist bg-[#ffcc00] text-black uppercase font-semibold px-4 py-2 flex items-center gap-2">
           <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="" class="w-6">Hugging Face
@@ -58,33 +126,188 @@
         <a href="https://linkedin.com/in/rotem-israeli-04ab10179" target="_blank" class="neo-brutalist bg-[#0077b5] text-white uppercase font-semibold px-4 py-2 flex items-center gap-2">
           <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="" class="w-6">LinkedIn
         </a>
-        <a href="mailto:irotem98@gmail.com" class="neo-brutalist bg-white text-black px-4 py-2 flex items-center gap-2">
+        <a href="mailto:irotem98@gmail.com" class="neo-brutalist surface px-4 py-2 flex items-center gap-2">
           <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="" class="w-6">irotem98@gmail.com
         </a>
-        <a href="tel:+972534326592" class="neo-brutalist bg-white text-black px-4 py-2 flex items-center gap-2">
+        <a href="tel:+972534326592" class="neo-brutalist surface px-4 py-2 flex items-center gap-2">
           <img src="https://e7.pngegg.com/pngimages/759/922/png-clipart-telephone-logo-iphone-telephone-call-smartphone-phone-electronics-text.png" alt="" class="w-6">(+972) 53-432-6592
         </a>
       </div>
     </section>
-    <article class="neo-brutalist bg-white p-6">
-      <h2 class="text-2xl md:text-3xl mb-4">ControlNet for Diffusion Transformers 🎨</h2>
-      <div class="flex flex-col md:flex-row gap-6">
-        <div class="md:w-1/2 flex flex-col gap-4">
+    <section class="space-y-3">
+      <h2 class="text-2xl md:text-3xl">Professional Experience</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <article class="neo-brutalist surface p-4 space-y-2 md:col-span-2">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h3 class="experience-title text-base md:text-lg">Multimodal AI Research Engineer at Idomoo</h3>
+            <span class="text-sm font-semibold whitespace-nowrap">Apr 2025 – Present</span>
+          </div>
           <ul class="list-disc pl-6 space-y-1">
-            <li>Built a ControlNet-like module for fine-grained text-to-image control, extending ControlNet-XS.</li>
-            <li>Outperformed Sana’s ControlNet baseline across all metrics.</li>
-            <li>Injected conditioning with zero-conv layers to preserve pretrained features.</li>
-            <li>Engineered efficient training with lazy loading & reduced memory footprint.</li>
+            <li>Built multimodal training and evaluation pipelines for code-generation and screenshot-to-webpage models using LoRA, vLLM, structured-output validation, and LLM-as-judge evaluation.</li>
+            <li>Developed reward-modeling and GRPO-style RL workflows for webpage aesthetics and layout quality.</li>
+            <li>Built and optimized production inference with vLLM and vLLM-Omni across LLM, image, and video workloads.</li>
           </ul>
-          <img src="images/controlnet_architecture.png" alt="Architecture diagram" class="neo-brutalist">
-          <img src="images/controlnet_eval.png" alt="Results table" class="neo-brutalist">
+        </article>
+        <article class="neo-brutalist surface p-4 space-y-2">
+          <h3 class="experience-title text-base md:text-lg">Conversational AI Engineer at NLPearl</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Real-time pause detection & starter suggestions via fine-tuned LLMs.</li>
+            <li>Explored encoder vs decoder architectures with LoRA + multi-stage training.</li>
+            <li>Designed an SLM that generates task-specific tokens for multi-task inference.</li>
+          </ul>
+        </article>
+        <article class="neo-brutalist surface p-4 space-y-2">
+          <h3 class="experience-title text-base md:text-lg">Machine Learning Engineer at Israeli Navy</h3>
+          <ul class="list-disc pl-6 space-y-1">
+            <li>Adapted vision and audio models for sonar and signal-processing tasks, including EnCodec/WavTokenizer-style representations.</li>
+            <li>Trained self-supervised and semi-supervised objectives on large unlabeled sonar and audio datasets using masked autoencoding, JEPA, and contrastive learning.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <h2 class="text-2xl md:text-3xl">Personal Projects</h2>
+    <article class="neo-brutalist surface p-4 space-y-4">
+      <div>
+        <h2 class="text-2xl md:text-3xl mb-3">Fast Code Pruner ⚡</h2>
+        <p>Task-aware context pruning for coding agents, built on a 17-layer Qwen2.5-Coder-0.5B backbone with a native vLLM serving path.</p>
+        <p class="mt-3">The pruner uses the normalized final-layer representation, removes three unnecessary attention branches, and merges rank-8 LoRA updates into dense weights during export.</p>
+      </div>
+      <div class="grid lg:grid-cols-5 gap-6 items-start">
+        <div class="lg:col-span-3">
+          <img src="images/code_pruner_architecture.png" data-light-src="images/code_pruner_architecture.png" data-dark-src="images/code_pruner_architecture_dark.webp" data-dark-fallback="images/code_pruner_architecture_dark.png" alt="Comparison of the original Code-Pruner and Fast Code Pruner architectures" class="theme-image" decoding="async">
         </div>
-        <div class="md:w-1/2">
-          <video src="videos/controlnet.mp4" autoplay muted loop playsinline></video>
+        <div class="lg:col-span-2">
+          <h3 class="text-xl md:text-2xl mb-3">Architecture highlights</h3>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Qwen2.5-Coder layers 1–17 with a normalized 896-dimensional final representation.</li>
+            <li>Gated PolyNorm expands 896 → 2432 before one bidirectional fusion-attention block.</li>
+            <li>CRF emissions reduce 2432 → 128 → 2 for line-level keep/prune decisions.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl md:text-2xl mb-3">Validation quality</h3>
+          <div class="results-table-wrap" role="region" aria-label="Fast Code Pruner validation quality" tabindex="0">
+            <table class="results-table">
+              <caption class="sr-only">Fast Code Pruner validation quality on the fixed 6,119-example seed-43 split</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Model</th>
+                  <th scope="col">Accuracy ↑</th>
+                  <th scope="col">Precision ↑</th>
+                  <th scope="col">Recall ↑</th>
+                  <th scope="col">F1 ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="best-row">
+                  <th scope="row">fast-code-pruner</th>
+                  <td>85.94%</td>
+                  <td>81.49%</td>
+                  <td>83.49%</td>
+                  <td>82.48%</td>
+                </tr>
+                <tr>
+                  <th scope="row">code-pruner</th>
+                  <td>84.07%</td>
+                  <td>80.02%</td>
+                  <td>80.91%</td>
+                  <td>80.46%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl md:text-2xl mb-3">Serving performance</h3>
+          <div class="results-table-wrap" role="region" aria-label="Fast Code Pruner serving performance" tabindex="0">
+            <table class="results-table">
+              <caption class="sr-only">Fast Code Pruner serving performance</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Model</th>
+                  <th scope="col">Backend</th>
+                  <th scope="col">Concurrency 1 ↑</th>
+                  <th scope="col">Concurrency 16 ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="best-row">
+                  <th scope="row">fast-code-pruner</th>
+                  <td>vLLM 0.13.0</td>
+                  <td>79.0 req/s</td>
+                  <td>143.4 req/s</td>
+                </tr>
+                <tr>
+                  <th scope="row">fast-code-pruner</th>
+                  <td>Hugging Face</td>
+                  <td>16.01 req/s</td>
+                  <td>16.03 req/s</td>
+                </tr>
+                <tr>
+                  <th scope="row">code-pruner</th>
+                  <td>Hugging Face</td>
+                  <td>9.83 req/s</td>
+                  <td>10.03 req/s</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </article>
-    <article class="neo-brutalist bg-white p-6 space-y-4">
+    <article class="neo-brutalist surface p-4">
+      <h2 class="text-2xl md:text-3xl mb-4">ControlNet for Diffusion Transformers 🎨</h2>
+      <ul class="list-disc pl-6 space-y-1 mb-6">
+        <li>Built a ControlNet-like module for fine-grained text-to-image control, extending ControlNet-XS.</li>
+        <li>Outperformed Sana’s ControlNet baseline across all metrics.</li>
+        <li>Injected conditioning with zero-conv layers to preserve pretrained features.</li>
+        <li>Engineered efficient training with lazy loading & reduced memory footprint.</li>
+      </ul>
+      <div class="controlnet-layout">
+        <div>
+          <img src="images/controlnet_architecture.png" data-light-src="images/controlnet_architecture.png" data-dark-src="images/controlnet_architecture_dark.webp" data-dark-fallback="images/controlnet_architecture_dark.png" alt="Architecture diagram" class="theme-image" decoding="async">
+          <div class="results-table-wrap" role="region" aria-label="ControlNet evaluation results" tabindex="0">
+            <table class="results-table">
+              <caption class="sr-only">ControlNet evaluation results</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Model</th>
+                  <th scope="col">FID (↓)</th>
+                  <th scope="col">LPIPS (↓)</th>
+                  <th scope="col">SSIM (↑)</th>
+                  <th scope="col">CLIP ↑</th>
+                  <th scope="col">CLIP<br>Aesthetic<br>↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">ControlNet</th>
+                  <td>38.78</td>
+                  <td>0.37</td>
+                  <td>0.33</td>
+                  <td>0.341</td>
+                  <td>11.42</td>
+                </tr>
+                <tr class="best-row">
+                  <th scope="row">ControlNet-XS</th>
+                  <td>34.38</td>
+                  <td>0.30</td>
+                  <td>0.43</td>
+                  <td>0.344</td>
+                  <td>12.39</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="controlnet-video-column">
+          <video class="controlnet-video" src="videos/controlnet.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </article>
+    <article class="neo-brutalist surface p-4 space-y-4">
       <h2 class="text-2xl md:text-3xl">Visual Question Answering 🔍</h2>
       <ul class="list-disc pl-6 space-y-1">
         <li>Developed a VQA pipeline inspired by LLaVA: vision encoder ➜ connector ➜ language model.</li>
@@ -93,9 +316,9 @@
         <li>Added dynamic high-res processing via LLaVA-NeXT + <code>s²</code> wrapper.</li>
         <li>Compared Gemma, Qwen, SmolLM, OpenELM for answer quality.</li>
       </ul>
-      <img src="images/llava_next.png" alt="LLaVA-Next" class="mx-auto neo-brutalist">
+      <img src="images/llava_next.png" data-light-src="images/llava_next.png" data-dark-src="images/llava_next_dark.webp" data-dark-fallback="images/llava_next_dark.png" alt="LLaVA-Next" class="theme-image mx-auto" decoding="async" loading="lazy">
     </article>
-    <article class="neo-brutalist bg-white p-6 space-y-4">
+    <article class="neo-brutalist surface p-4 space-y-4">
       <h2 class="text-2xl md:text-3xl">World Model à la Google Genie 🧞</h2>
       <ul class="list-disc pl-6 space-y-1">
         <li>Frame Tokenizer ➜ Latent Action Model ➜ Dynamics Model pipeline.</li>
@@ -109,7 +332,7 @@
         <video src="videos/genie_example3.mp4" autoplay muted loop playsinline></video>
       </div>
     </article>
-    <article class="neo-brutalist bg-white p-6 space-y-4">
+    <article class="neo-brutalist surface p-4 space-y-4">
       <h2 class="text-2xl md:text-3xl">Mobile Face Transformation App 📱</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <ul class="list-disc pl-6 space-y-1">
@@ -122,28 +345,72 @@
         </ul>
         <video src="videos/celebrityLook.mp4" autoplay muted loop playsinline></video>
       </div>
-      <img src="images/stylegan_inversion.png" alt="StyleGAN Inversion" class="mx-auto neo-brutalist">
+      <img src="images/stylegan_inversion.png" data-light-src="images/stylegan_inversion.png" data-dark-src="images/stylegan_inversion_dark.webp" data-dark-fallback="images/stylegan_inversion_dark.png" alt="StyleGAN Inversion" class="theme-image mx-auto" decoding="async" loading="lazy">
     </article>
-    <section class="grid md:grid-cols-2 gap-10">
-      <article class="neo-brutalist bg-white p-6 space-y-2">
-        <h2 class="text-xl md:text-2xl">Research Engineer at nlpearl.ai</h2>
-        <ul class="list-disc pl-6 space-y-1">
-          <li>Real-time pause detection & starter suggestions via fine-tuned LLMs.</li>
-          <li>Explored encoder vs decoder architectures with LoRA + multi-stage training.</li>
-          <li>Designed an SLM that generates task-specific tokens for multi-task inference.</li>
-        </ul>
-      </article>
-      <article class="neo-brutalist bg-white p-6 space-y-2">
-        <h2 class="text-xl md:text-2xl">Research Engineer at Israeli Navy</h2>
-        <ul class="list-disc pl-6 space-y-1">
-          <li>Adapted EnCodec & WavTokenizer to sonar/audio with staged LoRA training.</li>
-          <li>Self-supervised training on vast unlabeled sonar spectrograms.</li>
-          <li>Semi-supervised, mixup, and pseudo-labeling for robustness.</li>
-          <li>Distilled expert ensembles to lightweight students → faster inference.</li>
-          <li>Extensive data cleaning & NAS (RBF-KAN heads) for mission-critical accuracy.</li>
-        </ul>
-      </article>
-    </section>
   </div>
+  <script>
+    (() => {
+      const storageKey = "rotem-theme";
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = document.getElementById("theme-icon");
+      const prefersLight = window.matchMedia?.("(prefers-color-scheme: light)");
+
+      const readStoredTheme = () => {
+        try {
+          const value = localStorage.getItem(storageKey);
+          return value === "light" || value === "dark" ? value : null;
+        } catch (error) {
+          return null;
+        }
+      };
+
+      const applyTheme = (theme, persist = false) => {
+        document.documentElement.dataset.theme = theme;
+        document.querySelectorAll("[data-light-src][data-dark-src]").forEach((image) => {
+          const nextSource = theme === "dark" ? image.dataset.darkSrc : image.dataset.lightSrc;
+          if (image.getAttribute("src") !== nextSource) {
+            image.setAttribute("src", nextSource);
+          }
+        });
+        if (persist) {
+          try {
+            localStorage.setItem(storageKey, theme);
+          } catch (error) {
+            // The theme still applies when storage is unavailable.
+          }
+        }
+        const nextTheme = theme === "dark" ? "light" : "dark";
+        themeIcon.textContent = theme === "dark" ? "🌙" : "☀️";
+        themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+        themeToggle.setAttribute("title", `Switch to ${nextTheme} mode`);
+        themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+      };
+
+      document.querySelectorAll("[data-dark-src][data-dark-fallback]").forEach((image) => {
+        image.addEventListener("error", () => {
+          if (image.getAttribute("src") === image.dataset.darkSrc) {
+            image.setAttribute("src", image.dataset.darkFallback);
+          }
+        });
+      });
+
+      applyTheme(readStoredTheme() || document.documentElement.dataset.theme || "dark");
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = document.documentElement.dataset.theme;
+        applyTheme(currentTheme === "dark" ? "light" : "dark", true);
+      });
+
+      const followSystemTheme = (event) => {
+        if (!readStoredTheme()) {
+          applyTheme(event.matches ? "light" : "dark");
+        }
+      };
+      if (prefersLight?.addEventListener) {
+        prefersLight.addEventListener("change", followSystemTheme);
+      } else if (prefersLight?.addListener) {
+        prefersLight.addListener(followSystemTheme);
+      }
+    })();
+  </script>
 </body>
 </html>
